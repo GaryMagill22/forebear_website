@@ -9,7 +9,6 @@ function App() {
   return (
     <div className="App">
       <ForeBearText />
-      <h1>Hello Test</h1>
 
     </div>
   );
