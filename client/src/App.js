@@ -1,6 +1,8 @@
 import React from 'react';
-import './App.css';
-import ForeBearText from './Components/ForeBearText';
+// import { Route, Routes, } from 'react-router-dom';
+// import ForeBearText from './Components/ForeBearText';
+// import HeaderSection from './Components/HeaderSection';
+import LandingPage from './Pages/LandingPage';
 
 
 
@@ -8,7 +10,17 @@ import ForeBearText from './Components/ForeBearText';
 function App() {
   return (
     <div className="App">
-      <ForeBearText />
+
+      {/* <HeaderSection /> */}
+      {/* <ForeBearText /> */}
+      <LandingPage />
+
+      {/* <Routes>
+
+        <Route path="/" element={<ForeBearText />} />
+        <Route path="/" element={<PoloSlideOver />} />
+      </Routes> */}
+
 
     </div>
   );

@@ -1,6 +1,7 @@
+@import url('https://fonts.cdnfonts.com/css/mark-pro');
+
 body {
   margin: 0;
-  background-color: black;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -11,4 +12,31 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+
+#forebearWhiteText {
+  width: 100%;
+  position: absolute;
+  bottom: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.header-Container {
+  position: absolute;
+  top: 30%;
+  left: 05%;
+}
+
+.bearImg {
+  width: 300px;
+  margin-left: 300px;
+}
+
+.foreBearSummary {
+  width: 900px;
+  font-family: 'Mark Pro', sans-serif;
+  font-size: 1.1rem;
 }
