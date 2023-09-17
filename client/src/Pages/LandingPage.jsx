@@ -78,11 +78,15 @@ function LandingPage() {
 
     return (
 
-        <div className="bg-black">
-            <main className="isolate" >
+        <div className="main-container h-screen" >
 
+            <main className="relative isolate -z-10 h-screen">
 
-
+                <img
+                    src='ColorBlock_Polo.png'
+                    className="absolute inset-0 -z-10 w-full h-full object-cover stroke-gray-200 [mask-image:radial-gradient(50rem_50rem_at_center,white,transparent)]"
+                    aria-hidden="true"
+                />
 
 
                 {/* Hero section */}
@@ -128,8 +132,8 @@ function LandingPage() {
                                     <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                                         <div className="relative">
                                             <img
-                                                src="Colorblock_Polo.png"
-                                                alt="colorblock poloshirt"
+                                                src="ForeBear_Tags.png"
+                                                alt="ForeBear tags"
                                                 className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                                             />
                                             <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
@@ -138,16 +142,16 @@ function LandingPage() {
                                     <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
                                         <div className="relative">
                                             <img
-                                                src="https://images.unsplash.com/photo-1485217988980-11786ced9454?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
-                                                alt=""
+                                                src="ForeBear_Sweatshirts_Colorblock.png"
+                                                alt="ForeBear Sweatshirts closeup"
                                                 className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                                             />
                                             <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
                                         </div>
                                         <div className="relative">
                                             <img
-                                                src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-x=.4&w=396&h=528&q=80"
-                                                alt=""
+                                                src="IMG_6360.png"
+                                                alt="Hats with ForeBear Logo on them"
                                                 className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                                             />
                                             <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
@@ -156,16 +160,16 @@ function LandingPage() {
                                     <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
                                         <div className="relative">
                                             <img
-                                                src="https://images.unsplash.com/photo-1670272504528-790c24957dda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=left&w=400&h=528&q=80"
-                                                alt=""
+                                                src="ForeBear_Rain_Jacket.png"
+                                                alt="ForeBear Rain Jacket"
                                                 className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                                             />
                                             <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
                                         </div>
                                         <div className="relative">
                                             <img
-                                                src="https://images.unsplash.com/photo-1670272505284-8faba1c31f7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
-                                                alt=""
+                                                src="ForeBear_Waffle_Closeup.png"
+                                                alt="ForeBear Waffle 1/4 Zip"
                                                 className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                                             />
                                             <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
