@@ -3,6 +3,7 @@ import React from 'react';
 // import ForeBearText from './Components/ForeBearText';
 // import HeaderSection from './Components/HeaderSection';
 import LandingPage from './Pages/LandingPage';
+import NewsLetterSignup from './Components/NewsLetterSignup';
 
 
 
@@ -14,7 +15,7 @@ function App() {
       {/* <HeaderSection /> */}
       {/* <ForeBearText /> */}
       <LandingPage />
-
+      {/* <NewsLetterSignup /> */}
       {/* <Routes>
 
         <Route path="/" element={<ForeBearText />} />

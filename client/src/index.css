@@ -19,6 +19,8 @@ code {
 
 
 #forebearWhiteText {
+
+  margin: 20px;
   width: 95%;
   position: absolute;
   bottom: 75%;
@@ -26,20 +28,16 @@ code {
   transform: translate(-50%, -50%);
 }
 
-.header-Container {
-  position: absolute;
-  top: 50%;
-  left: 05%;
-}
+
 
 .bearImg {
   width: 300px;
   margin-left: 150px;
 }
 
-.foreBearSummary {
-  position: absolute;
-  width: 900px;
-  font-family: 'Mark Pro', sans-serif;
-  font-size: 1.1rem;
+.summary-Container {
+  position: relative;
+  top: 75px;
+  right: 30px;
+
 }
