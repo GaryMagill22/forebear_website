@@ -85,9 +85,9 @@ function LandingPage() {
 
 
 
-                <img id="forebearWhiteText" src="WhiteForeBearTextOnly.png" alt="White ForeBear" style={{ color: "white" }} />
                 {/* Hero section */}
                 <div className="relative isolate -z-10"  >
+                    <img id="forebearWhiteText" src="WhiteForeBearTextOnly.png" alt="White ForeBear" style={{ color: "white" }} />
 
 
 
@@ -106,7 +106,7 @@ function LandingPage() {
                     <div className="overflow-hidden">
                         <div className="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
                             <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
-                                <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
+                                <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl summary-Container">
                                     <p className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
                                         <img className="bearImg" src="White_ForeBear_Bear.png" alt="white ForeBear Bear Logo" />
                                     </p>
@@ -128,8 +128,8 @@ function LandingPage() {
                                     <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                                         <div className="relative">
                                             <img
-                                                src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
-                                                alt=""
+                                                src="Colorblock_Polo.png"
+                                                alt="colorblock poloshirt"
                                                 className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                                             />
                                             <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
@@ -315,8 +315,8 @@ export default LandingPage;
                                 height={48}
                             />
                         </div>
-                    </div> */}
-{/* </div> */ }
+                    </div> 
+                     </div> 
 
 {/* Team section */ }
 {/* <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-48 lg:px-8">
