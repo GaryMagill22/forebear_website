@@ -1,7 +1,41 @@
 import React from "react";
+import { useState } from "react";
+import axios from "axios";
+
+
 
 
 function NewsLetterSignup() {
+
+
+    const [email, setEmail] = useState({
+        email: "",
+    });
+
+
+    const changeHandler = (e) => {
+        setEmail({
+            ...email,
+            [e.target.name]: e.target.value
+        })
+        console.log(e.target.value);
+    }
+
+
+
+
+    const handleSubmit = (e) => {
+        axios.post('http://localhost:8000/Signup', { email })
+            .then(response => {
+                console.log(response.data.message);
+                // Maybe show a success message to the user
+            })
+            .catch(error => {
+                console.error("Error registering email:", error);
+                // Handle error, maybe show an error message to the user
+            });
+    }
+
     return (
         <div className="py-16 sm:py-24">
             <div className="mx-auto max-w-7.5xl sm:px-6 lg:px-10">
@@ -12,15 +46,15 @@ function NewsLetterSignup() {
                     <p className="mx-auto mt-2 max-w-xl text-center text-lg leading-8 text-gray-300">
                         Reprehenderit ad esse et non officia in nulla. Id proident tempor incididunt nostrud nulla et culpa.
                     </p>
-                    <form className="mx-auto mt-10 flex max-w-md gap-x-4">
+                    <form className="mx-auto mt-10 flex max-w-md gap-x-4" onSubmit={handleSubmit}>
                         <label htmlFor="email-address" className="sr-only">
                             Email address
                         </label>
-                        <input
-                            id="email-address"
+                        <input onChange={changeHandler}
+
+                            value={email.email}
                             name="email"
-                            type="email"
-                            autoComplete="email"
+                            type="text"
                             required
                             className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
                             placeholder="Enter your email"
@@ -29,7 +63,7 @@ function NewsLetterSignup() {
                             type="submit"
                             className="flex-none rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                         >
-                            Notify me
+                            Notify Me
                         </button>
                     </form>
 
