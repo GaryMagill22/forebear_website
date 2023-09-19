@@ -1,18 +1,19 @@
 const express = require('express');
-const User = require('./Models/user.model');  // Importing your user model
 const app = express();
 require('dotenv').config();
 const cors = require('cors')
+const axios = require('axios');
 const port = 8000;
 
+
+
+
 // CONFIG EXPRESS ===================================================================
+app.use(express.json());
 app.use(cors({
     credentials: true,
     origin: 'http://localhost:3000'
 }));
-
-
-
 
 
 // Listen on a port and provide feedback
@@ -20,26 +21,51 @@ app.listen(port, () => console.log(`Listening on port: ${port}`));
 
 
 
-
 app.post('/Signup', async (req, res) => {
     try {
-        const { email } = req.body;
+        const { firstName, lastName, email } = req.body;
 
-        if (!email) {
-            return res.status(400).json({ error: 'Email is required.' });
+        if (!email || !firstName || !lastName) {
+            return res.status(400).json({ error: 'All fields are required.' });
         }
 
-        const newUser = new User({ email });
-        await newUser.save();
+        // Saving to Shopify as a new customer
+        const shopifyResponse = await axios.post('https://fore-2-tour.myshopify.com/admin/api/2022-04/customers.json', {
+            customer: {
+                first_name: firstName,
+                last_name: lastName,
+                email: email
+            }
+        }, {
+            headers: {
+                'X-Shopify-Access-Token': process.env.PRIVATE_STOREFRONT_API_TOKEN,
+                'Content-Type': 'application/json'
+            }
+        });
 
-        res.json({ message: 'Email registered successfully.' });
+        if (shopifyResponse.data && shopifyResponse.data.customer) {
+            res.json({ message: 'Registered successfully.' });
+        } else {
+            throw new Error('Failed to save email in Shopify.');
+        }
 
     } catch (error) {
-        if (error.code === 11000) { // MongoDB error code for duplicate key
-            return res.status(400).json({ error: 'Email already registered.' });
+        console.error("Error occurred:", error);
+
+        let errorMessage = 'Server error.';
+
+        if (error.response && error.response.data && error.response.data.errors) {
+            errorMessage = `Shopify error: ${error.response.data.errors}`;
+
         }
-        res.status(500).json({ error: 'Server error.' });
+
+        return res.status(500).json({ error: errorMessage });
     }
 });
 
-//... (the rest of your server setup)
+
+
+
+
+
+

@@ -7,15 +7,17 @@ import axios from "axios";
 
 function NewsLetterSignup() {
 
-
-    const [email, setEmail] = useState({
+    const [message, setMessage] = useState("");
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
         email: "",
     });
 
 
     const changeHandler = (e) => {
-        setEmail({
-            ...email,
+        setFormData({
+            ...formData,
             [e.target.name]: e.target.value
         })
         console.log(e.target.value);
@@ -24,17 +26,22 @@ function NewsLetterSignup() {
 
 
 
-    const handleSubmit = (e) => {
-        axios.post('http://localhost:8000/Signup', { email })
-            .then(response => {
-                console.log(response.data.message);
-
-            })
-            .catch(error => {
-                console.error("Error registering email:", error);
-                // Handle error, maybe show an error message to the user
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://localhost:8000/Signup', formData);
+            setMessage(response.data.message);
+            // clear formData after submitted
+            setFormData({
+                firstName: "",
+                lastName: "",
+                email: "",
             });
-    }
+        } catch (error) {
+            setMessage(error.response.data.error);
+        }
+    };
+
 
     return (
 
@@ -47,18 +54,34 @@ function NewsLetterSignup() {
                     <p className="mx-auto mt-2 max-w-xl text-center text-lg leading-8 text-gray-300">
                         Sign up to receive updates on our launch and be the first to know when we’re live.
                     </p>
-                    <form className="mx-auto mt-10 flex max-w-md gap-x-4" onSubmit={handleSubmit}>
+                    <form className="mx-auto mt-8 flex max-w-xxl gap-x-4" onSubmit={handleSubmit}>
                         <label htmlFor="email-address" className="sr-only">
                             Email address
                         </label>
                         <input onChange={changeHandler}
 
-                            value={email.email}
-                            name="email"
+                            value={formData.firstName}
+                            name="firstName"
                             type="text"
                             required
-                            className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
-                            placeholder="Enter your email"
+                            className="min-w-3 flex-auto rounded-md border-3 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+                            placeholder="First Name"
+                        />
+                        <input onChange={changeHandler}
+                            value={formData.lastName}
+                            name="lastName"
+                            type="text"
+                            required
+                            className="min-w-3 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+                            placeholder="Last Name"
+                        />
+                        <input onChange={changeHandler}
+                            value={formData.email}
+                            name="email"
+                            type="email"
+                            required
+                            className="min-w-4 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+                            placeholder="Email."
                         />
                         <button
                             type="submit"
@@ -70,6 +93,8 @@ function NewsLetterSignup() {
 
                 </div>
             </div>
+            {message && <div className="mt-4 text-center text-white">{message}</div>}
+
         </div>
     )
 }
